@@ -1,0 +1,2 @@
+c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\VisualTextAdventure.csprojResolveAssemblyReference.cache
+c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt

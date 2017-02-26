@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{9A83F16F-8FDC-4075-8C4D-F131B82A61A3}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventureContent\</RootDirectory>
+      <LoggerRootDirectory>c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\</LoggerRootDirectory>
+      <IntermediateDirectory>c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-09-16T01:31:43.1872324-07:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

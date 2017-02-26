@@ -1,0 +1,1 @@
+c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventureContent\obj\x86\Debug\VisualTextAdventureContent.contentprojResolveAssemblyReference.cache
