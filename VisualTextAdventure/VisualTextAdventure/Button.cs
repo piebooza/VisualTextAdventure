@@ -13,11 +13,14 @@ namespace VisualTextAdventure
         Rectangle hitbox;
         Texture2D image;
         Color color;
-        public Button(Vector2 Position,Texture2D Image, Color Color) :
-        base(Position, Image, Color)
+        Vector2 scale;
+        SpriteEffects spriteeffects;
+        public Button(Vector2 Position,Texture2D Image, Vector2 Scale, SpriteEffects spriteEffects, Color Color) :
+        base(Position, Image, 0f, Scale, Color, spriteEffects)
         {
             position = Position;
             image = Image;
+            Scale = scale;
             hitbox = new Rectangle((int) position.X,(int) position.Y, image.Width, image.Height);
             color = Color;
         }

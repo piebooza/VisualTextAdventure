@@ -1,2 +1,20 @@
 c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\VisualTextAdventure.csprojResolveAssemblyReference.cache
 c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\New Piskel.xnb
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\New Piskel (1).xnb
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\Labelfont.xnb
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\VisualTextAdventure.exe
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\VisualTextAdventure.pdb
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Microsoft.Xna.Framework.xml
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\VisualTextAdventure.exe
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\VisualTextAdventure.pdb
+C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\shovel knight.xnb

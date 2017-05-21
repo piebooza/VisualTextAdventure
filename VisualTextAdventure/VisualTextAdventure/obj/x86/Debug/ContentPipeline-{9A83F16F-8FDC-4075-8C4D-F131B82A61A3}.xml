@@ -1,6 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>New Piskel.png</Source>
+      <Name>New Piskel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\New Piskel.xnb</Output>
+      <Time>2017-03-12T11:08:39.5939261-07:00</Time>
+    </Item>
+    <Item>
+      <Source>New Piskel (1).png</Source>
+      <Name>New Piskel (1)</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\New Piskel (1).xnb</Output>
+      <Time>2017-03-12T11:08:33.2252428-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Labelfont.spritefont</Source>
+      <Name>Labelfont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\Labelfont.xnb</Output>
+      <Time>2017-03-05T12:24:51.8750606-08:00</Time>
+    </Item>
+    <Item>
+      <Source>shovel knight.png</Source>
+      <Name>shovel knight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\shovel knight.xnb</Output>
+      <Time>2017-05-21T11:48:08.5634593-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{9A83F16F-8FDC-4075-8C4D-F131B82A61A3}</ContentProjectGUID>
@@ -8,15 +44,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventureContent\</RootDirectory>
-      <LoggerRootDirectory>c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\</LoggerRootDirectory>
-      <IntermediateDirectory>c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>c:\users\pierrebaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventureContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\PierreBaza\documents\visual studio 2015\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-07:00</Value>
+      </Assembly>
+      <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2016-09-16T01:31:43.1872324-07:00</Value>
+        <Value>2017-04-13T20:11:02.6719448-07:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
