@@ -28,6 +28,23 @@ namespace VisualTextAdventure
             }
         }
 
+        public float Width
+        {
+            get
+            {
+                return image.Width * scale.X;
+            }
+        }
+
+        public float Height
+        {
+            get
+            {
+                return image.Height * scale.Y;
+            }
+        }
+
+
         public Sprite(Vector2 position, Texture2D image) : this(position, image, 0f, Vector2.One, Color.White, SpriteEffects.None) { }
 
         public Sprite(Vector2 Position, Texture2D Image, float Rotation, Vector2 Scale, Color Color, SpriteEffects spriteeffects)
@@ -40,11 +57,7 @@ namespace VisualTextAdventure
             color = Color;
             spriteEffects = spriteeffects;
         }
-
-        /// <summary>
-        /// Draws the sprite
-        /// </summary>
-        /// <param name="spriteBatch">The thing that draws</param>
+        
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(image, Position, null, color, rotation, origin, scale, spriteEffects, 0f);
