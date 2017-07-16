@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="AnimatedSprite.cs" />
     <Compile Include="Button.cs" />
+    <Compile Include="enum.cs" />
     <Compile Include="Frame.cs" />
     <Compile Include="Label.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

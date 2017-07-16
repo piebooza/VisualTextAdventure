@@ -29,13 +29,13 @@ namespace VisualTextAdventure
         }
 
 
-        public AnimatedSprite(List<Frame> frames, Vector2 Position, Texture2D Image, float Rotation, Vector2 Scale, SpriteEffects spriteEffects, Color Tint) :
+        public AnimatedSprite(List<Frame> frames, Vector2 Position, Texture2D Image, float Rotation, Vector2 Scale, SpriteEffects spriteEffects, Color Tint, TimeSpan frameRate) :
             base(Position, Image, Rotation, Scale, Tint, spriteEffects)
         {
 
             this.frames = frames;
             currentFrame = 0;
-            frameRate = TimeSpan.FromMilliseconds(60);
+            this.frameRate = frameRate;
         }
         public virtual void Update(GameTime gameTime)
         {
