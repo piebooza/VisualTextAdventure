@@ -3,8 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace VisualTextAdventure
 {
@@ -16,7 +14,6 @@ namespace VisualTextAdventure
         float ground;
         float jumpPower;
         float gravity = 0.1f;
-
         bool isAir = false;
 
         WizardState wizardState;
@@ -27,6 +24,8 @@ namespace VisualTextAdventure
             jumpPower = JumpPower;
             ground = position.Y + FrameHeight/2;
             wizardState = WizardState.Idle;
+
+            
         }
 
         public override void Update(GameTime gameTime)
