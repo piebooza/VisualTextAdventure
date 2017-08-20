@@ -28,6 +28,14 @@ namespace VisualTextAdventure
             }
         }
 
+        public Rectangle Hitbox
+        {
+            get
+            {
+                return new Rectangle((int)(Position.X - frames[currentFrame].Origin.X * scale.X), (int)(Position.Y - frames[currentFrame].Origin.Y * scale.Y), (int)(frames[currentFrame].Bounds.Width * scale.X), (int)(frames[currentFrame].Bounds.Height * scale.Y));
+            }
+        }
+
 
         public AnimatedSprite(List<Frame> frames, Vector2 Position, Texture2D Image, float Rotation, Vector2 Scale, SpriteEffects spriteEffects, Color Tint, TimeSpan frameRate) :
             base(Position, Image, Rotation, Scale, Tint, spriteEffects)

@@ -17,7 +17,7 @@ namespace VisualTextAdventure
         public Vector2 origin;
         public Vector2 scale;
         public SpriteEffects spriteEffects;
-
+        public Rectangle hitbox;
 
         private Texture2D image;
         public Texture2D Image
@@ -27,7 +27,13 @@ namespace VisualTextAdventure
                 return image;
             }
         }
-
+        public Rectangle Hitbox
+        {
+            get
+            {
+                return new Rectangle((int)(Position.X - image.Width * scale.X /2f), (int)(Position.Y - image.Height * scale.Y /2f), (int)(image.Width * scale.X), (int)(image.Height * scale.Y));
+            }
+        }
         public float Width
         {
             get
