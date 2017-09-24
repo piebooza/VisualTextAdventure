@@ -24,7 +24,7 @@ namespace VisualTextAdventure
 
         //AnimatedSprite boss;
 
-        List<AnimatedSprite> fireball = new List<AnimatedSprite>();
+        List<Fireball> fireball = new List<Fireball>();
         List<Frame> fireballFrames = new List<Frame>();
 
         Label MainText;
@@ -54,7 +54,6 @@ namespace VisualTextAdventure
         KeyboardState keyboardState;
         MouseState mouseState;
         MouseState prevmouseState;
-        
         Random rand;
 
         float jumpPower;
@@ -65,7 +64,6 @@ namespace VisualTextAdventure
         bool isAir = false;
         bool moving = false;
         bool invul = false;
-        bool fireballshoot = false;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -88,7 +86,7 @@ namespace VisualTextAdventure
             int frameHeight = 26;
 
 
-            
+
             List<Frame> frames = new List<Frame>();
             List<Frame> EnemyFrames = new List<Frame>();
             List<Frame> BossFrames = new List<Frame>();
@@ -97,7 +95,7 @@ namespace VisualTextAdventure
             HalfHearts = new List<Sprite>();
             NoHearts = new List<Sprite>();
 
-            startbutton = new Sprite(new Vector2(375, 200), Content.Load<Texture2D>("start button"),0f, new Vector2( .15f, .15f), Color.DarkGray, SpriteEffects.None);
+            startbutton = new Sprite(new Vector2(375, 200), Content.Load<Texture2D>("start button"), 0f, new Vector2(.15f, .15f), Color.DarkGray, SpriteEffects.None);
             secretbutton = new Sprite(new Vector2(790, 470), Content.Load<Texture2D>("secret heart"), 0f, new Vector2(.01f, .01f), Color.DarkGray, SpriteEffects.None);
 
             Hearts.Add(new Sprite(new Vector2(20, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
@@ -134,16 +132,16 @@ namespace VisualTextAdventure
             fireballFrames.Add(new Frame(new Rectangle(273, 100, 56, 57)));
             fireballFrames.Add(new Frame(new Rectangle(345, 95, 56, 59)));
 
-/*
-            BossFrames.Add(new Frame(new Rectangle(18, 16, 128, 178)));
-            BossFrames.Add(new Frame(new Rectangle(157, 17, 131, 176)));
-            BossFrames.Add(new Frame(new Rectangle(445, 12, 131, 183)));
-            */
+            /*
+                        BossFrames.Add(new Frame(new Rectangle(18, 16, 128, 178)));
+                        BossFrames.Add(new Frame(new Rectangle(157, 17, 131, 176)));
+                        BossFrames.Add(new Frame(new Rectangle(445, 12, 131, 183)));
+                        */
 
             wizard = new Wizard(new Vector2(300, GraphicsDevice.Viewport.Height - frameHeight / 2 - 89), Content.Load<Texture2D>("New Piskel"), new Vector2(2, 2), frames, 3, TimeSpan.FromMilliseconds(60));
 
             //boss = new AnimatedSprite(BossFrames, new Vector2(4000, GraphicsDevice.Viewport.Height - frameHeight / 2 - 89), Content.Load<Texture2D>("boss"), 0f, new Vector2(2, 2), SpriteEffects.FlipHorizontally, Color.White, TimeSpan.FromMilliseconds(1000));
-            fireball.Add(new AnimatedSprite(fireballFrames, new Vector2((int)(wizard.Position.X + 40), (int)(wizard.Position.Y - 40)), Content.Load<Texture2D>("fireballs"), 0, new Vector2(.5f, .5f), SpriteEffects.None, Color.White, new TimeSpan(0,0,0,0,100)));
+
 
             int x = 0;
 
@@ -152,7 +150,7 @@ namespace VisualTextAdventure
                 x += rand.Next(300, 600);
                 enemy1.Add(new Thwomps(new Vector2(x, GraphicsDevice.Viewport.Height - frameHeight / 2 - 90), Content.Load<Texture2D>("Thwomp"), new Vector2(3, 3), EnemyFrames, 3, TimeSpan.FromMilliseconds(100)));
             }
-           
+
             jumpPower = 12;
             foreach (Thwomps enemy in enemy1)
             {
@@ -160,7 +158,7 @@ namespace VisualTextAdventure
                 ground = enemy.Position.Y + enemy.FrameHeight / 2;
             }
 
-       
+
         }
 
         protected override void UnloadContent()
@@ -174,35 +172,19 @@ namespace VisualTextAdventure
             prevmouseState = mouseState;
             mouseState = Mouse.GetState();
 
-
-                if (prevmouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
-                {
-                    fireball.Add(new AnimatedSprite(fireballFrames, new Vector2((int)(wizard.Position.X + 10), (int)(wizard.Position.Y + 10)), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), SpriteEffects.None, Color.White, new TimeSpan(0, 0, 0, 0, 80)));
-                }
-
-                else if (prevmouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Pressed)
-                {
-                if (fireball[0].scale.X <= 2 || fireball[0].scale.Y <= 2)
-                {
-                    fireball[0].scale.X += .01f;
-                    fireball[0].scale.Y += .01f;
-                    fireball[0].Position.X += .2f;
-                    fireball[0].Position.Y -= .2f;
-                }
+            if (prevmouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+            {
+                fireball.Add(new Fireball(new Vector2((int)(wizard.Position.X + 25), (int)(wizard.Position.Y - 25 )), Content.Load<Texture2D>("fireballs"), new Vector2(0.1f), fireballFrames, new TimeSpan(0, 0, 0, 0, 60)));
             }
-                else if (prevmouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
-                {
-               // while(fireball[0].Position.Y >= GraphicsDevice.Viewport.Height - 200)
-                fireball[0].Position.X += 1;
-                fireball[0].Position.Y += .01f;
-
-              /*  fireball[0].scale.X = .2f;
-                fireball[0].scale.Y = .2f;
-                fireball[0].Position.X = (int)(wizard.Position.X + 40);
-                fireball[0].Position.Y = (int)(wizard.Position.Y - 40); */
+            else if (prevmouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Pressed)
+            {
+                fireball[fireball.Count - 1].state = Fireball.State.Growing;
             }
-            
-        
+            else if (prevmouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
+            {
+
+                fireball[fireball.Count - 1].state = Fireball.State.Moving;
+            }
             if (invul == false)
             {
                 foreach (Thwomps enemy in enemy1)
@@ -221,7 +203,7 @@ namespace VisualTextAdventure
                 }
 
             }
-        
+
             if (invul == true)
             {
                 hittimer++;
@@ -231,24 +213,30 @@ namespace VisualTextAdventure
                     invul = false;
                 }
             }
-            
+
             if (keyboardState.IsKeyDown(Keys.D) || keyboardState.IsKeyDown(Keys.Right))
             {
                 foreach (Thwomps enemy in enemy1)
                 {
                     enemy.Position.X -= 2;
                 }
-              //  boss.Position.X -= 2;
+                foreach(Fireball ball in fireball)
+                {
+                    ball.Position.X -= 2;
+                }
             }
             if (keyboardState.IsKeyDown(Keys.A) || keyboardState.IsKeyDown(Keys.Left))
             {
                 foreach (Thwomps enemy in enemy1)
                 {
                     enemy.Position.X += 2;
-                //    boss.Position.X -= 2;
+                }
+                foreach (Fireball ball in fireball)
+                {
+                    ball.Position.X += 2;
                 }
             }
-                  
+
             if (!isAir)
             {
                 speed = jumpPower;
@@ -257,7 +245,7 @@ namespace VisualTextAdventure
             }
             else if (isAir)
             {
-                
+
 
                 timer++;
                 foreach (Thwomps enemy in enemy1)
@@ -309,17 +297,17 @@ namespace VisualTextAdventure
                 }
 
             }
-            
+
             wizard.Update(gameTime);
+
             for (int x = 0; x < fireball.Count; x++)
             {
-                fireball[0].Update(gameTime);
-                    }
+                fireball[x].Update(gameTime);
+            }
             for (int x = 0; x < enemy1.Count; x++)
             {
                 enemy1[x].Update(gameTime);
             }
-            fireball[0].Update(gameTime);
             Background.Update(GraphicsDevice.Viewport);
 
             prevKeyboardState = keyboardState;
@@ -336,13 +324,13 @@ namespace VisualTextAdventure
 
             if (LifeTotal <= 0)
             {
-                if(startbutton.Hitbox.Contains(mouseState.X, mouseState.Y))
+                if (startbutton.Hitbox.Contains(mouseState.X, mouseState.Y))
                 //if (mouseState.X < startbutton.hitbox.X + startbutton.hitbox.Width && mouseState.Y < startbutton.hitbox.Y && mouseState.Y > startbutton.hitbox.Y + startbutton.hitbox.Height && mouseState.X > startbutton.hitbox.X)
                 {
-                    
-                        startbutton.color = Color.White;
-                        if (mouseState.LeftButton == ButtonState.Pressed)
-                        {
+
+                    startbutton.color = Color.White;
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                    {
                         LifeTotal = 5;
                         Hearts.Add(new Sprite(new Vector2(20, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
                         Hearts.Add(new Sprite(new Vector2(Hearts[0].Position.X + Hearts[0].Image.Width * Hearts[0].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
@@ -409,7 +397,7 @@ namespace VisualTextAdventure
                 //boss.Draw(spriteBatch);
 
 
-                
+
 
                 foreach (Thwomps enemy in enemy1)
                 {
@@ -441,12 +429,9 @@ namespace VisualTextAdventure
                     Hearts[j].Draw(spriteBatch);
                 }
 
-                if (mouseState.LeftButton == ButtonState.Pressed)
+                foreach (Fireball ball in fireball)
                 {
-                    for (int k = 0; k < LifeTotal; k++)
-                    {
-                        fireball[0].Draw(spriteBatch);
-                    }
+                    ball.Draw(spriteBatch);
                 }
 
                 /*
