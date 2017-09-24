@@ -21,37 +21,51 @@ namespace VisualTextAdventure
 
 
         Wizard wizard;
-        Sprite EndScreen;
-        List<Thwomps> enemy1 = new List<Thwomps>();
+
+        //AnimatedSprite boss;
+
         List<AnimatedSprite> fireball = new List<AnimatedSprite>();
+        List<Frame> fireballFrames = new List<Frame>();
+
         Label MainText;
+
         Button startScreen;
+
         ScrollingBackground Background;
-        KeyboardState prevKeyboardState;
-        KeyboardState keyboardState;
+
+        List<Thwomps> enemy1 = new List<Thwomps>();
 
         List<Sprite> Hearts;
         List<Sprite> HalfHearts;
         List<Sprite> NoHearts;
-        int LifeTotal = 5;
-        TimeSpan elapsed = TimeSpan.Zero;
+
         Sprite startbutton;
+        Sprite secretbutton;
+        Sprite EndScreen;
+
+        int LifeTotal = 5;
         int timer = 0;
         int hittimer = 0;
+
+        TimeSpan elapsed = TimeSpan.Zero;
+        TimeSpan fireballtimer = TimeSpan.Zero;
+
+        KeyboardState prevKeyboardState;
+        KeyboardState keyboardState;
         MouseState mouseState;
-        bool invul = false;
+        MouseState prevmouseState;
+        
+        Random rand;
+
+        float jumpPower;
+        float gravity = 0.3f;
         float speed = 5;
         float ground;
 
-        Random rand;
-        float jumpPower;
-        float gravity = 0.3f;
-
         bool isAir = false;
         bool moving = false;
-
-        Texture2D pixel;
-
+        bool invul = false;
+        bool fireballshoot = false;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -73,15 +87,18 @@ namespace VisualTextAdventure
             int frameWidth = 22;
             int frameHeight = 26;
 
-            List<Frame> fireballFrames = new List<Frame>();
+
+            
             List<Frame> frames = new List<Frame>();
             List<Frame> EnemyFrames = new List<Frame>();
+            List<Frame> BossFrames = new List<Frame>();
 
             Hearts = new List<Sprite>();
             HalfHearts = new List<Sprite>();
             NoHearts = new List<Sprite>();
 
             startbutton = new Sprite(new Vector2(375, 200), Content.Load<Texture2D>("start button"),0f, new Vector2( .15f, .15f), Color.DarkGray, SpriteEffects.None);
+            secretbutton = new Sprite(new Vector2(790, 470), Content.Load<Texture2D>("secret heart"), 0f, new Vector2(.01f, .01f), Color.DarkGray, SpriteEffects.None);
 
             Hearts.Add(new Sprite(new Vector2(20, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
             Hearts.Add(new Sprite(new Vector2(Hearts[0].Position.X + Hearts[0].Image.Width * Hearts[0].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
@@ -112,20 +129,30 @@ namespace VisualTextAdventure
             EnemyFrames.Add(new Frame(new Rectangle(115, 89, 17, 17)));
             EnemyFrames.Add(new Frame(new Rectangle(139, 89, 17, 17)));
 
-            fireballFrames.Add(new Frame(new Rectangle(16, 55, 53, 52)));
-            fireballFrames.Add(new Frame(new Rectangle(87, 49, 53, 58)));
-            fireballFrames.Add(new Frame(new Rectangle(159, 55, 53, 52)));
-            fireballFrames.Add(new Frame(new Rectangle(229, 49, 53, 58)));
+            fireballFrames.Add(new Frame(new Rectangle(132, 101, 54, 57)));
+            fireballFrames.Add(new Frame(new Rectangle(202, 96, 56, 61)));
+            fireballFrames.Add(new Frame(new Rectangle(273, 100, 56, 57)));
+            fireballFrames.Add(new Frame(new Rectangle(345, 95, 56, 59)));
 
-            wizard = new Wizard(new Vector2(300, GraphicsDevice.Viewport.Height - frameHeight / 2 - 90), Content.Load<Texture2D>("New Piskel"), new Vector2(2, 2), frames, 3, TimeSpan.FromMilliseconds(60));
+/*
+            BossFrames.Add(new Frame(new Rectangle(18, 16, 128, 178)));
+            BossFrames.Add(new Frame(new Rectangle(157, 17, 131, 176)));
+            BossFrames.Add(new Frame(new Rectangle(445, 12, 131, 183)));
+            */
+
+            wizard = new Wizard(new Vector2(300, GraphicsDevice.Viewport.Height - frameHeight / 2 - 89), Content.Load<Texture2D>("New Piskel"), new Vector2(2, 2), frames, 3, TimeSpan.FromMilliseconds(60));
+
+            //boss = new AnimatedSprite(BossFrames, new Vector2(4000, GraphicsDevice.Viewport.Height - frameHeight / 2 - 89), Content.Load<Texture2D>("boss"), 0f, new Vector2(2, 2), SpriteEffects.FlipHorizontally, Color.White, TimeSpan.FromMilliseconds(1000));
+            fireball.Add(new AnimatedSprite(fireballFrames, new Vector2((int)(wizard.Position.X + 40), (int)(wizard.Position.Y - 40)), Content.Load<Texture2D>("fireballs"), 0, new Vector2(.5f, .5f), SpriteEffects.None, Color.White, new TimeSpan(0,0,0,0,100)));
+
             int x = 0;
+
             for (int i = 1; i < 60; i++)
             {
                 x += rand.Next(300, 600);
                 enemy1.Add(new Thwomps(new Vector2(x, GraphicsDevice.Viewport.Height - frameHeight / 2 - 90), Content.Load<Texture2D>("Thwomp"), new Vector2(3, 3), EnemyFrames, 3, TimeSpan.FromMilliseconds(100)));
             }
-            fireball.Add(new AnimatedSprite(fireballFrames, new Vector2(wizard.Position.X, wizard.Position.Y), Content.Load<Texture2D>("fireballs"), 0, Vector2.One, SpriteEffects.None, Color.White, TimeSpan.FromMilliseconds(30)));
-
+           
             jumpPower = 12;
             foreach (Thwomps enemy in enemy1)
             {
@@ -133,7 +160,7 @@ namespace VisualTextAdventure
                 ground = enemy.Position.Y + enemy.FrameHeight / 2;
             }
 
-            pixel = Content.Load<Texture2D>("pixel");
+       
         }
 
         protected override void UnloadContent()
@@ -144,12 +171,40 @@ namespace VisualTextAdventure
         protected override void Update(GameTime gameTime)
         {
             keyboardState = Keyboard.GetState();
+            prevmouseState = mouseState;
+            mouseState = Mouse.GetState();
 
+
+                if (prevmouseState.LeftButton == ButtonState.Released && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    fireball.Add(new AnimatedSprite(fireballFrames, new Vector2((int)(wizard.Position.X + 10), (int)(wizard.Position.Y + 10)), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), SpriteEffects.None, Color.White, new TimeSpan(0, 0, 0, 0, 80)));
+                }
+
+                else if (prevmouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Pressed)
+                {
+                if (fireball[0].scale.X <= 2 || fireball[0].scale.Y <= 2)
+                {
+                    fireball[0].scale.X += .01f;
+                    fireball[0].scale.Y += .01f;
+                    fireball[0].Position.X += .2f;
+                    fireball[0].Position.Y -= .2f;
+                }
+            }
+                else if (prevmouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton == ButtonState.Released)
+                {
+               // while(fireball[0].Position.Y >= GraphicsDevice.Viewport.Height - 200)
+                fireball[0].Position.X += 1;
+                fireball[0].Position.Y += .01f;
+
+              /*  fireball[0].scale.X = .2f;
+                fireball[0].scale.Y = .2f;
+                fireball[0].Position.X = (int)(wizard.Position.X + 40);
+                fireball[0].Position.Y = (int)(wizard.Position.Y - 40); */
+            }
+            
+        
             if (invul == false)
             {
-                wizard.Position.Y = GraphicsDevice.Viewport.Height - wizard.FrameHeight / 2 - 77;
-                wizard.scale.X = 2f;
-                wizard.scale.Y = 2f;
                 foreach (Thwomps enemy in enemy1)
                 {
                     if (wizard.Hitbox.Intersects(enemy.Hitbox))
@@ -166,6 +221,7 @@ namespace VisualTextAdventure
                 }
 
             }
+        
             if (invul == true)
             {
                 hittimer++;
@@ -174,9 +230,6 @@ namespace VisualTextAdventure
                     hittimer = 0;
                     invul = false;
                 }
-                wizard.scale.X = 3f;
-                wizard.scale.Y = .5f;
-                wizard.Position.Y = GraphicsDevice.Viewport.Height - 83;
             }
             
             if (keyboardState.IsKeyDown(Keys.D) || keyboardState.IsKeyDown(Keys.Right))
@@ -185,24 +238,17 @@ namespace VisualTextAdventure
                 {
                     enemy.Position.X -= 2;
                 }
+              //  boss.Position.X -= 2;
             }
             if (keyboardState.IsKeyDown(Keys.A) || keyboardState.IsKeyDown(Keys.Left))
             {
                 foreach (Thwomps enemy in enemy1)
                 {
                     enemy.Position.X += 2;
+                //    boss.Position.X -= 2;
                 }
             }
-
-            mouseState = Mouse.GetState();
-            if(LifeTotal <= 0)
-            {
-                
-                if(mouseState.LeftButton == ButtonState.Pressed)
-                {
-
-                }
-            }           
+                  
             if (!isAir)
             {
                 speed = jumpPower;
@@ -265,6 +311,10 @@ namespace VisualTextAdventure
             }
             
             wizard.Update(gameTime);
+            for (int x = 0; x < fireball.Count; x++)
+            {
+                fireball[0].Update(gameTime);
+                    }
             for (int x = 0; x < enemy1.Count; x++)
             {
                 enemy1[x].Update(gameTime);
@@ -308,7 +358,39 @@ namespace VisualTextAdventure
                 {
                     startbutton.color = Color.DarkGray;
                 }
-                
+
+                if (secretbutton.Hitbox.Contains(mouseState.X, mouseState.Y))
+                //if (mouseState.X < startbutton.hitbox.X + startbutton.hitbox.Width && mouseState.Y < startbutton.hitbox.Y && mouseState.Y > startbutton.hitbox.Y + startbutton.hitbox.Height && mouseState.X > startbutton.hitbox.X)
+                {
+
+                    secretbutton.color = Color.White;
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                    {
+                        LifeTotal = 10;
+                        Hearts.Add(new Sprite(new Vector2(20, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
+                        Hearts.Add(new Sprite(new Vector2(Hearts[0].Position.X + Hearts[0].Image.Width * Hearts[0].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
+                        Hearts.Add(new Sprite(new Vector2(Hearts[1].Position.X + Hearts[1].Image.Width * Hearts[1].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
+                        Hearts.Add(new Sprite(new Vector2(Hearts[2].Position.X + Hearts[2].Image.Width * Hearts[2].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
+                        Hearts.Add(new Sprite(new Vector2(Hearts[3].Position.X + Hearts[3].Image.Width * Hearts[3].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
+                        Hearts.Add(new Sprite(new Vector2(Hearts[4].Position.X + Hearts[4].Image.Width * Hearts[4].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
+                        Hearts.Add(new Sprite(new Vector2(Hearts[5].Position.X + Hearts[5].Image.Width * Hearts[5].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
+                        Hearts.Add(new Sprite(new Vector2(Hearts[6].Position.X + Hearts[6].Image.Width * Hearts[6].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
+                        Hearts.Add(new Sprite(new Vector2(Hearts[7].Position.X + Hearts[7].Image.Width * Hearts[7].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
+                        Hearts.Add(new Sprite(new Vector2(Hearts[8].Position.X + Hearts[8].Image.Width * Hearts[8].scale.X, 20), Content.Load<Texture2D>("Heart"), 0, new Vector2(.2f, .2f), Color.White, SpriteEffects.None));
+
+                        NoHearts.Add(new Sprite(new Vector2(NoHearts[4].Position.X + NoHearts[4].Image.Width * NoHearts[4].scale.X, 20), Content.Load<Texture2D>("Emp_Heart"), 0, new Vector2(.095f, .095f), Color.White, SpriteEffects.None));
+                        NoHearts.Add(new Sprite(new Vector2(NoHearts[5].Position.X + NoHearts[5].Image.Width * NoHearts[5].scale.X, 20), Content.Load<Texture2D>("Emp_Heart"), 0, new Vector2(.095f, .095f), Color.White, SpriteEffects.None));
+                        NoHearts.Add(new Sprite(new Vector2(NoHearts[6].Position.X + NoHearts[6].Image.Width * NoHearts[6].scale.X, 20), Content.Load<Texture2D>("Emp_Heart"), 0, new Vector2(.095f, .095f), Color.White, SpriteEffects.None));
+                        NoHearts.Add(new Sprite(new Vector2(NoHearts[7].Position.X + NoHearts[7].Image.Width * NoHearts[7].scale.X, 20), Content.Load<Texture2D>("Emp_Heart"), 0, new Vector2(.095f, .095f), Color.White, SpriteEffects.None));
+                        NoHearts.Add(new Sprite(new Vector2(NoHearts[8].Position.X + NoHearts[8].Image.Width * NoHearts[8].scale.X, 20), Content.Load<Texture2D>("Emp_Heart"), 0, new Vector2(.095f, .095f), Color.White, SpriteEffects.None));
+                    }
+
+
+                }
+                else
+                {
+                    secretbutton.color = Color.DarkGray;
+                }
             }
         }
 
@@ -324,7 +406,7 @@ namespace VisualTextAdventure
 
                 Background.Draw(spriteBatch);
 
-
+                //boss.Draw(spriteBatch);
 
 
                 
@@ -333,6 +415,7 @@ namespace VisualTextAdventure
                 {
                     enemy.Draw(spriteBatch);
                 }
+
                 if (invul)
                 {
                     if (hittimer % 10 == 0)
@@ -347,7 +430,7 @@ namespace VisualTextAdventure
                 }
                 wizard.Draw(spriteBatch);
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < NoHearts.Count; i++)
                 {
 
                     NoHearts[i].Draw(spriteBatch);
@@ -394,6 +477,7 @@ namespace VisualTextAdventure
                 spriteBatch.Begin();
                 EndScreen.Draw(spriteBatch);
                 startbutton.Draw(spriteBatch);
+                secretbutton.Draw(spriteBatch);
                 spriteBatch.End();
             }
             base.Draw(gameTime);

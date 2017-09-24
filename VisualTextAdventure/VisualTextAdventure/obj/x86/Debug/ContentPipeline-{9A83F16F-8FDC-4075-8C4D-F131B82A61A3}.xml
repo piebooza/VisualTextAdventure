@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\New Piskel.xnb</Output>
-      <Time>2017-07-16T11:15:06-07:00</Time>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\New Piskel.xnb</Output>
+      <Time>2017-08-27T11:19:57.6823141-07:00</Time>
     </Item>
     <Item>
       <Source>shovel knight.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\shovel knight.xnb</Output>
-      <Time>2017-07-16T11:15:06-07:00</Time>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\shovel knight.xnb</Output>
+      <Time>2017-08-27T11:19:57.7760647-07:00</Time>
     </Item>
     <Item>
       <Source>Emp_Heart.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\Emp_Heart.xnb</Output>
-      <Time>2017-07-16T11:15:06-07:00</Time>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\Emp_Heart.xnb</Output>
+      <Time>2017-08-27T11:19:57.6354372-07:00</Time>
     </Item>
     <Item>
       <Source>Heart.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\Heart.xnb</Output>
-      <Time>2017-07-16T11:15:06-07:00</Time>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\Heart.xnb</Output>
+      <Time>2017-08-27T11:19:57.6510667-07:00</Time>
     </Item>
     <Item>
       <Source>HalfHeart.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\HalfHeart.xnb</Output>
-      <Time>2017-07-16T11:15:06-07:00</Time>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\HalfHeart.xnb</Output>
+      <Time>2017-08-27T11:19:57.6354372-07:00</Time>
     </Item>
     <Item>
       <Source>dead.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\dead.xnb</Output>
-      <Time>2017-07-16T11:15:06-07:00</Time>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\dead.xnb</Output>
+      <Time>2017-08-27T11:19:57.7291903-07:00</Time>
     </Item>
     <Item>
       <Source>Thwomp.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\Thwomp.xnb</Output>
-      <Time>2017-07-16T11:15:06-07:00</Time>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\Thwomp.xnb</Output>
+      <Time>2017-08-27T11:19:57.6979384-07:00</Time>
     </Item>
     <Item>
       <Source>fireballs.png</Source>
@@ -70,17 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\fireballs.xnb</Output>
-      <Time>2017-07-16T12:06:16-07:00</Time>
-    </Item>
-    <Item>
-      <Source>pixel.png</Source>
-      <Name>pixel</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\pixel.xnb</Output>
-      <Time>2017-07-30T12:22:28-07:00</Time>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\fireballs.xnb</Output>
+      <Time>2017-09-10T11:53:01.5529738-07:00</Time>
     </Item>
     <Item>
       <Source>start button.jpg</Source>
@@ -88,8 +79,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\start button.xnb</Output>
-      <Time>2017-08-13T12:03:14-07:00</Time>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\start button.xnb</Output>
+      <Time>2017-08-27T11:27:44.1532441-07:00</Time>
+    </Item>
+    <Item>
+      <Source>secret heart.png</Source>
+      <Name>secret heart</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\secret heart.xnb</Output>
+      <Time>2017-08-27T11:35:04.4970003-07:00</Time>
+    </Item>
+    <Item>
+      <Source>boss.png</Source>
+      <Name>boss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\boss.xnb</Output>
+      <Time>2017-08-27T12:01:20.5563757-07:00</Time>
     </Item>
     <Item>
       <Source>Labelfont.spritefont</Source>
@@ -97,8 +106,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\Labelfont.xnb</Output>
-      <Time>2017-07-16T11:15:06-07:00</Time>
+      <Output>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\Labelfont.xnb</Output>
+      <Time>2017-08-27T11:19:57.6823141-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -107,10 +116,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventureContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\GMRInstructor\Documents\Visual Studio 2017\Projects\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventureContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\PierreBaza\Desktop\VisualTextAdventure\VisualTextAdventure\VisualTextAdventure\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -139,7 +148,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2017-04-13T15:00:45.2716708-07:00</Value>
+        <Value>2017-04-13T20:11:02.6719448-07:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
